@@ -15,8 +15,26 @@ class EventItemCell: UITableViewCell {
     @IBOutlet weak var eventStatusLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
     
+    private var targetEvent: Event?
+    
+    func updateCell(withEvent event:Event) {
+        self.targetEvent = event
+        self.layoutIfNeeded()
+    }
+    
     override func layoutIfNeeded() {
-        NSLog("Layout")
+        if (self.targetEvent != nil) {
+            self.eventNameLabel.text = self.targetEvent?.eventName
+            if (targetEvent?.eventDescription?.isEmpty ?? true) {
+                self.eventDescriptionLabel.text = NSLocalizedString("NoEventDescriptionAvailiable", comment: "")
+            } else {
+                self.eventDescriptionLabel.text = self.targetEvent?.eventDescription
+            }
+            self.eventStatusLabel.attributedText = UIUtil.string(forEventStatus: Int((targetEvent?.eventStatus)!))
+            if (targetEvent?.eventTime != nil) {
+                self.eventTimeLabel.text = DateFormatter.localizedString(from: targetEvent!.eventTime! as Date, dateStyle: .medium, timeStyle: .short)
+            }
+        }
     }
     
     override func awakeFromNib() {

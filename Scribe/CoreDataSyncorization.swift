@@ -61,6 +61,10 @@ class CoreDataSyncorization {
                 if (eventObject?.eventStatus != eventStatus) {
                     eventObject?.eventStatus = eventStatus
                 }
+                let eventTime = Date(timeIntervalSince1970: (event.value(forKey: "eventTime") as! Double) / 1000)
+                if (eventObject?.eventTime == nil || (eventObject!.eventTime! as Date) != eventTime) {
+                    eventObject?.eventTime = eventTime as NSDate
+                }
             }
             let removedEventsFetchRequest: NSFetchRequest<Event> = Event.fetchRequest()
             removedEventsFetchRequest.predicate = NSPredicate.init(format: "NOT (eventId in %@)", argumentArray: [eventIds])

@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  Scribe
+
+  Created by Codetector on 2017/4/28.
+  Copyright © 2017年 Codetector. All rights reserved.
+*/
+"NoEventDescriptionAvailiable" = "No event description availiable";
+
+"EVENT_STATUS_FUTURE" = "Future";
+"EVENT_STATUS_BOARDING" = "Boarding";
+"EVENT_STATUS_COMPLETE" = "Complete";
+"EVENT_STATUS_UNKNOWN" = "Unknown";
