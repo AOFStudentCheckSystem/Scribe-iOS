@@ -8,19 +8,36 @@
 
 import Foundation
 import CoreData
+import ReachabilitySwift
 
 class CoreDataSyncorization {
     static let sharedCoreDataSyncorization = CoreDataSyncorization()
-
-    private init() {}
+    private let reachability = Reachability()!
     
-    func attemptDataSyncorization(_ context : NSManagedObjectContext, pirorityLevel: DispatchQoS.QoSClass = DispatchQoS.QoSClass.background) {
+    private let updateLock = NSLock()
+    
+    private init() {
+        reachability.whenReachable = { r in
+            self.attemptDataSyncorization((UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext, callback: nil)
+        }
+        updateLock.name = "CoredataSyncLock"
+    }
+    
+    func attemptDataSyncorization(_ context : NSManagedObjectContext,
+                                  pirorityLevel: DispatchQoS.QoSClass = DispatchQoS.QoSClass.background,
+                                  callback: (() -> ())?) {
         DispatchQueue.global(qos: pirorityLevel).async {
-            self.updateAllEvents(context: context)
+            if (self.updateLock.lock(before: Date.init(timeIntervalSinceNow: 0.5))) {
+                self.updateAllEvents(context: context)
+                DispatchQueue.main.async {
+                        callback?()
+                }
+                self.updateLock.unlock()
+            }
         }
     }
     
-    func updateAllEvents(context: NSManagedObjectContext) -> Void {
+    private func updateAllEvents(context: NSManagedObjectContext) -> Void {
         NSLog("Fetching latest events from server...")
         let allEventJsonArray = ScribeAPI.sharedInstance.listAllEvents()
         NSLog("Server responded with %i events", allEventJsonArray.count)
@@ -40,9 +57,9 @@ class CoreDataSyncorization {
                 if (eventObject?.eventDescription != (event.object(forKey: "eventDescription") as! String)) {
                     eventObject?.eventDescription = (event.object(forKey: "eventDescription") as! String)
                 }
-                let eventStatus = Int32(event.object(forKey: "eventStatus") as! String)
+                let eventStatus = Int32(event["eventStatus"] as! Int)
                 if (eventObject?.eventStatus != eventStatus) {
-                    eventObject?.eventStatus = eventStatus!
+                    eventObject?.eventStatus = eventStatus
                 }
             }
             let removedEventsFetchRequest: NSFetchRequest<Event> = Event.fetchRequest()

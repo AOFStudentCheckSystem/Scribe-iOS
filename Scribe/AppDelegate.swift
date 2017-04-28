@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UINavigationBar.appearance().backgroundColor = UIColor.white
 //        UINavigationBar.appearance().color
 //        application.statusBarStyle = .lightContent
+        CoreDataSyncorization.sharedCoreDataSyncorization.attemptDataSyncorization(self.persistentContainer.viewContext, callback: nil)
         return true
     }
 
