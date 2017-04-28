@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122515377941FA0CE5CCDD5F /* Pods_Scribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19615C2C8A5B0E20A53C9E77 /* Pods_Scribe.framework */; };
+		C03D51121EB2DAE800EB039F /* ScribeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51111EB2DAE800EB039F /* ScribeAPI.swift */; };
+		C03F3B441EA55C23001513B1 /* EventListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F3B431EA55C23001513B1 /* EventListTVC.swift */; };
+		C03F3B471EA55C80001513B1 /* EventItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F3B461EA55C80001513B1 /* EventItemCell.swift */; };
+		C096107C1EB28F2C00FD2BA3 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C096107B1EB28F2C00FD2BA3 /* UIColorExtension.swift */; };
+		C096107F1EB2B6C600FD2BA3 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C096107D1EB2B6C600FD2BA3 /* Event+CoreDataClass.swift */; };
+		C09610801EB2B6C600FD2BA3 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C096107E1EB2B6C600FD2BA3 /* Event+CoreDataProperties.swift */; };
+		C09610841EB2B83600FD2BA3 /* CoreDataSyncorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09610831EB2B83600FD2BA3 /* CoreDataSyncorization.swift */; };
 		C0CD84511EA54BE900843B50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD84501EA54BE900843B50 /* AppDelegate.swift */; };
-		C0CD84531EA54BE900843B50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD84521EA54BE900843B50 /* ViewController.swift */; };
 		C0CD84561EA54BE900843B50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CD84541EA54BE900843B50 /* Main.storyboard */; };
 		C0CD84591EA54BE900843B50 /* Scribe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C0CD84571EA54BE900843B50 /* Scribe.xcdatamodeld */; };
 		C0CD845B1EA54BE900843B50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0CD845A1EA54BE900843B50 /* Assets.xcassets */; };
@@ -16,9 +23,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0921FBD11D948986D6248F8F /* Pods-Scribe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scribe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scribe/Pods-Scribe.debug.xcconfig"; sourceTree = "<group>"; };
+		19615C2C8A5B0E20A53C9E77 /* Pods_Scribe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scribe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64E4F2A036DE96C899F3A418 /* Pods-Scribe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scribe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scribe/Pods-Scribe.release.xcconfig"; sourceTree = "<group>"; };
+		C03D51111EB2DAE800EB039F /* ScribeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScribeAPI.swift; sourceTree = "<group>"; };
+		C03F3B431EA55C23001513B1 /* EventListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListTVC.swift; sourceTree = "<group>"; };
+		C03F3B461EA55C80001513B1 /* EventItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItemCell.swift; sourceTree = "<group>"; };
+		C096107B1EB28F2C00FD2BA3 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		C096107D1EB2B6C600FD2BA3 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C096107E1EB2B6C600FD2BA3 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C09610831EB2B83600FD2BA3 /* CoreDataSyncorization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSyncorization.swift; sourceTree = "<group>"; };
 		C0CD844D1EA54BE900843B50 /* Scribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CD84501EA54BE900843B50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0CD84521EA54BE900843B50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C0CD84551EA54BE900843B50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0CD84581EA54BE900843B50 /* Scribe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Scribe.xcdatamodel; sourceTree = "<group>"; };
 		C0CD845A1EA54BE900843B50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,17 +47,80 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				122515377941FA0CE5CCDD5F /* Pods_Scribe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6903E4C4CD2C43F99F2CF16C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19615C2C8A5B0E20A53C9E77 /* Pods_Scribe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3572D45BAC5CBBD87513EAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0921FBD11D948986D6248F8F /* Pods-Scribe.debug.xcconfig */,
+				64E4F2A036DE96C899F3A418 /* Pods-Scribe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C03D510F1EB2BAB900EB039F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0CD84501EA54BE900843B50 /* AppDelegate.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C03F3B451EA55C67001513B1 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				C03F3B431EA55C23001513B1 /* EventListTVC.swift */,
+				C03F3B461EA55C80001513B1 /* EventItemCell.swift */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
+		C096107A1EB28F1D00FD2BA3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C096107B1EB28F2C00FD2BA3 /* UIColorExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		C09610811EB2B70500FD2BA3 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				C096107D1EB2B6C600FD2BA3 /* Event+CoreDataClass.swift */,
+				C096107E1EB2B6C600FD2BA3 /* Event+CoreDataProperties.swift */,
+			);
+			name = DataModels;
+			sourceTree = "<group>";
+		};
+		C09610821EB2B7C900FD2BA3 /* DataSyncorization */ = {
+			isa = PBXGroup;
+			children = (
+				C09610831EB2B83600FD2BA3 /* CoreDataSyncorization.swift */,
+				C03D51111EB2DAE800EB039F /* ScribeAPI.swift */,
+			);
+			name = DataSyncorization;
+			sourceTree = "<group>";
+		};
 		C0CD84441EA54BE900843B50 = {
 			isa = PBXGroup;
 			children = (
 				C0CD844F1EA54BE900843B50 /* Scribe */,
 				C0CD844E1EA54BE900843B50 /* Products */,
+				A3572D45BAC5CBBD87513EAA /* Pods */,
+				6903E4C4CD2C43F99F2CF16C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +135,16 @@
 		C0CD844F1EA54BE900843B50 /* Scribe */ = {
 			isa = PBXGroup;
 			children = (
-				C0CD84501EA54BE900843B50 /* AppDelegate.swift */,
-				C0CD84521EA54BE900843B50 /* ViewController.swift */,
+				C09610821EB2B7C900FD2BA3 /* DataSyncorization */,
+				C09610811EB2B70500FD2BA3 /* DataModels */,
+				C096107A1EB28F1D00FD2BA3 /* Extensions */,
+				C03F3B451EA55C67001513B1 /* Event */,
 				C0CD84541EA54BE900843B50 /* Main.storyboard */,
 				C0CD845A1EA54BE900843B50 /* Assets.xcassets */,
 				C0CD845C1EA54BE900843B50 /* LaunchScreen.storyboard */,
 				C0CD845F1EA54BE900843B50 /* Info.plist */,
 				C0CD84571EA54BE900843B50 /* Scribe.xcdatamodeld */,
+				C03D510F1EB2BAB900EB039F /* Supporting Files */,
 			);
 			path = Scribe;
 			sourceTree = "<group>";
@@ -74,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0CD84621EA54BE900843B50 /* Build configuration list for PBXNativeTarget "Scribe" */;
 			buildPhases = (
+				267D1FC59C1D66142389DDE4 /* [CP] Check Pods Manifest.lock */,
 				C0CD84491EA54BE900843B50 /* Sources */,
 				C0CD844A1EA54BE900843B50 /* Frameworks */,
 				C0CD844B1EA54BE900843B50 /* Resources */,
+				0B4DB60276C50177AE7DE7DA /* [CP] Embed Pods Frameworks */,
+				D8A7DB0ED206A5353A11339D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -100,6 +185,7 @@
 					C0CD844C1EA54BE900843B50 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 8N2ATYF5VA;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -135,14 +221,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0B4DB60276C50177AE7DE7DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scribe/Pods-Scribe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		267D1FC59C1D66142389DDE4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D8A7DB0ED206A5353A11339D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scribe/Pods-Scribe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C0CD84491EA54BE900843B50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0CD84531EA54BE900843B50 /* ViewController.swift in Sources */,
+				C03F3B441EA55C23001513B1 /* EventListTVC.swift in Sources */,
 				C0CD84511EA54BE900843B50 /* AppDelegate.swift in Sources */,
+				C096107C1EB28F2C00FD2BA3 /* UIColorExtension.swift in Sources */,
+				C03D51121EB2DAE800EB039F /* ScribeAPI.swift in Sources */,
+				C09610801EB2B6C600FD2BA3 /* Event+CoreDataProperties.swift in Sources */,
 				C0CD84591EA54BE900843B50 /* Scribe.xcdatamodeld in Sources */,
+				C09610841EB2B83600FD2BA3 /* CoreDataSyncorization.swift in Sources */,
+				C096107F1EB2B6C600FD2BA3 /* Event+CoreDataClass.swift in Sources */,
+				C03F3B471EA55C80001513B1 /* EventItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,27 +405,36 @@
 		};
 		C0CD84631EA54BE900843B50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0921FBD11D948986D6248F8F /* Pods-Scribe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8N2ATYF5VA;
 				INFOPLIST_FILE = Scribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.codetector.check.Scribe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		C0CD84641EA54BE900843B50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64E4F2A036DE96C899F3A418 /* Pods-Scribe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8N2ATYF5VA;
 				INFOPLIST_FILE = Scribe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.codetector.check.Scribe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -308,6 +457,7 @@
 				C0CD84641EA54BE900843B50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
