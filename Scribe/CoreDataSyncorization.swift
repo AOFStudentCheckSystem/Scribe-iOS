@@ -28,7 +28,9 @@ class CoreDataSyncorization {
                                   callback: (() -> ())?) {
         DispatchQueue.global(qos: pirorityLevel).async {
             if (self.updateLock.lock(before: Date.init(timeIntervalSinceNow: 0.5))) {
-                self.updateAllEvents(context: context)
+                if (self.reachability.isReachable) {
+                    self.updateAllEvents(context: context)
+                }
                 DispatchQueue.main.async {
                         callback?()
                 }

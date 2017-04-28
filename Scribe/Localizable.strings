@@ -11,3 +11,12 @@
 "EVENT_STATUS_BOARDING" = "Boarding";
 "EVENT_STATUS_COMPLETE" = "Complete";
 "EVENT_STATUS_UNKNOWN" = "Unknown";
+
+"Login" = "Login";
+"Cancel" = "Cancel";
+"email" = "Email";
+"password" = "Password";
+
+"Sign Out?" = "Sign Out?";
+"ClickSignOutToConfirm" = "Click Sign Out to confirm";
+"Sign Out" = "Sign Out";

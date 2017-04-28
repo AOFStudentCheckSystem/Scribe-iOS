@@ -11,6 +11,10 @@
 		C03D51121EB2DAE800EB039F /* ScribeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51111EB2DAE800EB039F /* ScribeAPI.swift */; };
 		C03D51141EB3B9E500EB039F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C03D51131EB3B9E500EB039F /* Localizable.strings */; };
 		C03D51161EB3BE7F00EB039F /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51151EB3BE7F00EB039F /* UIUtil.swift */; };
+		C03D51191EB3D0BA00EB039F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51181EB3D0B900EB039F /* SettingsTableViewController.swift */; };
+		C03D51211EB3D71C00EB039F /* UIRountImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51201EB3D71C00EB039F /* UIRountImageView.swift */; };
+		C03D51231EB3D9E100EB039F /* RoundCornerUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51221EB3D9E100EB039F /* RoundCornerUIView.swift */; };
+		C03D51261EB3DDF400EB039F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51251EB3DDF400EB039F /* Login.swift */; };
 		C03F3B441EA55C23001513B1 /* EventListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F3B431EA55C23001513B1 /* EventListTVC.swift */; };
 		C03F3B471EA55C80001513B1 /* EventItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F3B461EA55C80001513B1 /* EventItemCell.swift */; };
 		C096107C1EB28F2C00FD2BA3 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C096107B1EB28F2C00FD2BA3 /* UIColorExtension.swift */; };
@@ -31,6 +35,10 @@
 		C03D51111EB2DAE800EB039F /* ScribeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScribeAPI.swift; sourceTree = "<group>"; };
 		C03D51131EB3B9E500EB039F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C03D51151EB3BE7F00EB039F /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
+		C03D51181EB3D0B900EB039F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		C03D51201EB3D71C00EB039F /* UIRountImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIRountImageView.swift; sourceTree = "<group>"; };
+		C03D51221EB3D9E100EB039F /* RoundCornerUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundCornerUIView.swift; sourceTree = "<group>"; };
+		C03D51251EB3DDF400EB039F /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		C03F3B431EA55C23001513B1 /* EventListTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListTVC.swift; sourceTree = "<group>"; };
 		C03F3B461EA55C80001513B1 /* EventItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItemCell.swift; sourceTree = "<group>"; };
 		C096107B1EB28F2C00FD2BA3 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -88,8 +96,26 @@
 		C03D51171EB3D08E00EB039F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				C03D51181EB3D0B900EB039F /* SettingsTableViewController.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		C03D511F1EB3D70100EB039F /* UIExtension */ = {
+			isa = PBXGroup;
+			children = (
+				C03D51201EB3D71C00EB039F /* UIRountImageView.swift */,
+				C03D51221EB3D9E100EB039F /* RoundCornerUIView.swift */,
+			);
+			name = UIExtension;
+			sourceTree = "<group>";
+		};
+		C03D51241EB3DDE000EB039F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C03D51251EB3DDF400EB039F /* Login.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		C03F3B451EA55C67001513B1 /* Event */ = {
@@ -104,6 +130,7 @@
 		C096107A1EB28F1D00FD2BA3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C03D511F1EB3D70100EB039F /* UIExtension */,
 				C096107B1EB28F2C00FD2BA3 /* UIColorExtension.swift */,
 			);
 			name = Extensions;
@@ -148,6 +175,7 @@
 		C0CD844F1EA54BE900843B50 /* Scribe */ = {
 			isa = PBXGroup;
 			children = (
+				C03D51241EB3DDE000EB039F /* Login */,
 				C03D51171EB3D08E00EB039F /* Settings */,
 				C09610821EB2B7C900FD2BA3 /* DataSyncorization */,
 				C09610811EB2B70500FD2BA3 /* DataModels */,
@@ -289,14 +317,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03D51261EB3DDF400EB039F /* Login.swift in Sources */,
 				C03F3B441EA55C23001513B1 /* EventListTVC.swift in Sources */,
 				C0CD84511EA54BE900843B50 /* AppDelegate.swift in Sources */,
 				C096107C1EB28F2C00FD2BA3 /* UIColorExtension.swift in Sources */,
+				C03D51191EB3D0BA00EB039F /* SettingsTableViewController.swift in Sources */,
 				C03D51161EB3BE7F00EB039F /* UIUtil.swift in Sources */,
+				C03D51231EB3D9E100EB039F /* RoundCornerUIView.swift in Sources */,
 				C03D51121EB2DAE800EB039F /* ScribeAPI.swift in Sources */,
 				C09610801EB2B6C600FD2BA3 /* Event+CoreDataProperties.swift in Sources */,
 				C0CD84591EA54BE900843B50 /* Scribe.xcdatamodeld in Sources */,
 				C09610841EB2B83600FD2BA3 /* CoreDataSyncorization.swift in Sources */,
+				C03D51211EB3D71C00EB039F /* UIRountImageView.swift in Sources */,
 				C096107F1EB2B6C600FD2BA3 /* Event+CoreDataClass.swift in Sources */,
 				C03F3B471EA55C80001513B1 /* EventItemCell.swift in Sources */,
 			);
