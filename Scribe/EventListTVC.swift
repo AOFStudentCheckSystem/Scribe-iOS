@@ -18,6 +18,7 @@ class EventListTVC: UITableViewController {
         self.navigationController?.navigationBar.barTintColor =  UIColor.colorWithRGB(color: 0x3d4351)
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+//        ScribeAPI.sharedInstance.listAllEvents()
 //        self.navigationController?.tabBarItem.= UIColor.white
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -50,7 +51,6 @@ class EventListTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: EventItemCell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventItemCell
 
-        NSLog("%@", LoremIpsum.paragraphs(withNumber: 1))
         cell.eventNameLabel.text = LoremIpsum.name()
         cell.eventDescriptionLabel?.text = LoremIpsum.paragraphs(withNumber: 5)
         
