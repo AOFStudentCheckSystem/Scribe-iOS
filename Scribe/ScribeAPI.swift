@@ -37,6 +37,10 @@ class ScribeAPI {
         return UserDefaults.standard.string(forKey: "Authorization")
     }
     
+    func currentUser() -> String? {
+        return UserDefaults.standard.string(forKey: "currentUser")
+    }
+    
     func listAllEvents() -> NSArray {
         let rtn = NSMutableArray()
         let r = Just.get(rootURL.appending("/event/listall"))
@@ -57,9 +61,12 @@ class ScribeAPI {
         if r.ok {
             let dict = (r.json as! NSDictionary)
 //            let stu = dict.value(forKeyPath: "user.student")
-//            let userEmail = dict.value(forKeyPath: "user.email")
+            let userEmail = dict.value(forKeyPath: "user.email")
             let token = dict.object(forKey: "token") as! String
             let ndefault = UserDefaults.standard
+            if (userEmail != nil && userEmail is String) {
+                ndefault.set(userEmail as! String, forKey: "currentUser")
+            }
             ndefault.set(token, forKey: "Authorization")
             NotificationCenter.default.post(name: ScribeNotification.AuthenticationFailed, object: nil)
         } else {

@@ -10,6 +10,7 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBOutlet weak var usernameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,10 +27,17 @@ class SettingsTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(forName: ScribeNotification.AuthenticationFailed, object: nil, queue: OperationQueue.current) { (n) in
             self.reloadView()
         }
+        
+        self.setupData()
     }
 
     private func reloadView() {
+        self.setupData()
         self.tableView.reloadData()
+    }
+    
+    private func setupData() {
+        usernameLabel.text = ScribeAPI.sharedInstance.currentUser() ?? "example@examle.com"
     }
     
     override func didReceiveMemoryWarning() {
