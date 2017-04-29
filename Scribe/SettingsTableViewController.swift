@@ -68,7 +68,18 @@ class SettingsTableViewController: UITableViewController {
             Login.launchLoginScreen(inViewController: self, onConfirm: { (isLogin, username, password) in
                 if (isLogin) {
                     DispatchQueue.global(qos: .background).async {
-                        _ = ScribeAPI.sharedInstance.authenticate(username: username!, password: password!)
+                        if (!ScribeAPI.sharedInstance.authenticate(username: username!, password: password!)) {
+                            let ctrl = UIAlertController.init(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Failed to Authorize", comment: ""), preferredStyle: .alert)
+                            ctrl.addAction(UIAlertAction.init(title: NSLocalizedString("Retry", comment: ""), style: .default, handler: { (action) in
+                                DispatchQueue.main.async {
+                                    self.handleAccountSectionActions(row: 0)
+                                }
+                            }))
+                            ctrl.addAction(UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+                            DispatchQueue.main.async {
+                                self.present(ctrl, animated: true, completion: nil)
+                            }
+                        }
                     }
                 }
             })

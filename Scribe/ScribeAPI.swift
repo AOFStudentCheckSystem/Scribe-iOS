@@ -14,6 +14,12 @@ class ScribeNotification {
     static let AuthenticationFailed = Notification.Name("AuthenticationFailed")
 }
 
+enum APICallError: Error {
+    case NotAuthenticatedException
+    case NoStudentBindException
+    case ServerError(statusCode: Int)
+}
+
 class ScribeAPI {
     
     static let sharedInstance = ScribeAPI()
@@ -25,12 +31,29 @@ class ScribeAPI {
     
     func signOut() {
         UserDefaults.standard.removeObject(forKey: "Authorization")
-        NotificationCenter.default.post(name: ScribeNotification.AuthenticationSucceed, object: nil)
+        NotificationCenter.default.post(name: ScribeNotification.AuthenticationFailed, object: nil)
+    }
+    
+    func listCurrentSignUps() throws -> NSDictionary {
+        if (!self.isAuthenticated()){
+            throw APICallError.NotAuthenticatedException
+        }
+        let r = Just.get(rootURL.appending("/signup/list/current"),
+                 headers: ["Authorization" : self.authorizationString()!],
+                 timeout: 5)
+        if !(r.ok) {
+            throw APICallError.ServerError(statusCode: r.statusCode ?? 0)
+        }
+        return (r.json) as! NSDictionary
     }
     
     func isAuthenticated() -> Bool {
         let auth = authorizationString()
         return auth != nil && (!(auth!.isEmpty))
+    }
+    
+    func isStudentAvailiable() -> Bool {
+        return UserDefaults.standard.bool(forKey: "isStudentPresent")
     }
     
     private func authorizationString() -> String? {
@@ -43,11 +66,23 @@ class ScribeAPI {
     
     func listAllEvents() -> NSArray {
         let rtn = NSMutableArray()
-        let r = Just.get(rootURL.appending("/event/listall"))
+        let r = Just.get(rootURL.appending("/event/listall"), timeout: 5)
         if (r.ok) {
             return (r.json as! NSDictionary).value(forKey: "content") as! NSArray
         }
         return rtn
+    }
+    
+    private func updateAuthenticationInformation(dict: NSDictionary?) {
+        let userEmail = dict?.value(forKeyPath: "user.email")
+        let token = dict?.object(forKey: "token") as! String
+        let student = (dict?.object(forKey: "usert.student") != nil)
+        
+        let ndefault = UserDefaults.standard
+        
+        ndefault.set(userEmail, forKey: "currentUser")
+        ndefault.set(token, forKey: "Authorization")
+        ndefault.set(student, forKey: "isStudentPresent")
     }
     
     func authenticate(username: String?, password: String?) -> Bool {
@@ -60,15 +95,8 @@ class ScribeAPI {
         NSLog("\(String(describing: r))")
         if r.ok {
             let dict = (r.json as! NSDictionary)
-//            let stu = dict.value(forKeyPath: "user.student")
-            let userEmail = dict.value(forKeyPath: "user.email")
-            let token = dict.object(forKey: "token") as! String
-            let ndefault = UserDefaults.standard
-            if (userEmail != nil && userEmail is String) {
-                ndefault.set(userEmail as! String, forKey: "currentUser")
-            }
-            ndefault.set(token, forKey: "Authorization")
-            NotificationCenter.default.post(name: ScribeNotification.AuthenticationFailed, object: nil)
+            updateAuthenticationInformation(dict: dict)
+            NotificationCenter.default.post(name: ScribeNotification.AuthenticationSucceed, object: nil)
         } else {
             self.signOut()
         }

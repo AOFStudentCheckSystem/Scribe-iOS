@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		122515377941FA0CE5CCDD5F /* Pods_Scribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19615C2C8A5B0E20A53C9E77 /* Pods_Scribe.framework */; };
+		C03124411EB42EB700AA69B4 /* EventSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03124401EB42EB700AA69B4 /* EventSignUp.swift */; };
+		C03124431EB435F500AA69B4 /* SignupSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03124421EB435F500AA69B4 /* SignupSheet.swift */; };
 		C03D51121EB2DAE800EB039F /* ScribeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51111EB2DAE800EB039F /* ScribeAPI.swift */; };
 		C03D51141EB3B9E500EB039F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C03D51131EB3B9E500EB039F /* Localizable.strings */; };
 		C03D51161EB3BE7F00EB039F /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51151EB3BE7F00EB039F /* UIUtil.swift */; };
@@ -32,6 +34,8 @@
 		0921FBD11D948986D6248F8F /* Pods-Scribe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scribe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scribe/Pods-Scribe.debug.xcconfig"; sourceTree = "<group>"; };
 		19615C2C8A5B0E20A53C9E77 /* Pods_Scribe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scribe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64E4F2A036DE96C899F3A418 /* Pods-Scribe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scribe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scribe/Pods-Scribe.release.xcconfig"; sourceTree = "<group>"; };
+		C03124401EB42EB700AA69B4 /* EventSignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSignUp.swift; sourceTree = "<group>"; };
+		C03124421EB435F500AA69B4 /* SignupSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupSheet.swift; sourceTree = "<group>"; };
 		C03D51111EB2DAE800EB039F /* ScribeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScribeAPI.swift; sourceTree = "<group>"; };
 		C03D51131EB3B9E500EB039F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C03D51151EB3BE7F00EB039F /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 			children = (
 				C09610831EB2B83600FD2BA3 /* CoreDataSyncorization.swift */,
 				C03D51111EB2DAE800EB039F /* ScribeAPI.swift */,
+				C03124401EB42EB700AA69B4 /* EventSignUp.swift */,
+				C03124421EB435F500AA69B4 /* SignupSheet.swift */,
 			);
 			name = DataSyncorization;
 			sourceTree = "<group>";
@@ -328,8 +334,10 @@
 				C09610801EB2B6C600FD2BA3 /* Event+CoreDataProperties.swift in Sources */,
 				C0CD84591EA54BE900843B50 /* Scribe.xcdatamodeld in Sources */,
 				C09610841EB2B83600FD2BA3 /* CoreDataSyncorization.swift in Sources */,
+				C03124431EB435F500AA69B4 /* SignupSheet.swift in Sources */,
 				C03D51211EB3D71C00EB039F /* UIRountImageView.swift in Sources */,
 				C096107F1EB2B6C600FD2BA3 /* Event+CoreDataClass.swift in Sources */,
+				C03124411EB42EB700AA69B4 /* EventSignUp.swift in Sources */,
 				C03F3B471EA55C80001513B1 /* EventItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
