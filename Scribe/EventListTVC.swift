@@ -21,6 +21,8 @@ class EventListTVC: UITableViewController, NSFetchedResultsControllerDelegate{
         return NSFetchedResultsController<Event>.init(fetchRequest: fetchRequest , managedObjectContext: self.getNSManagedObjectContextView(), sectionNameKeyPath: nil, cacheName: nil)
     }()
     
+    private var perviousSignupStatus = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.estimatedRowHeight = 55
@@ -34,18 +36,20 @@ class EventListTVC: UITableViewController, NSFetchedResultsControllerDelegate{
         } catch {
             NSLog("Failed to perform fetch \(error)")
         }
-//        ScribeAPI.sharedInstance.listAllEvents()
-//        self.navigationController?.tabBarItem.= UIColor.white
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        EventSignUp.sharedInstance.refreshStatus()
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl?.tintColor = #colorLiteral(red: 0.3900208806, green: 0.5891898534, blue: 1, alpha: 1)
         refreshControl!.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.refreshControl = refreshControl
+        
+        NotificationCenter.default.addObserver(forName: EventSignUp.signupSheetRefreshed, object: nil, queue: OperationQueue.main) { (n) in
+            if (EventSignUp.sharedInstance.isSignupAvailable() && (!self.perviousSignupStatus)) {
+                self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+            } else if (!EventSignUp.sharedInstance.isSignupAvailable() && self.perviousSignupStatus) {
+                self.tableView.deleteRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+            }
+        }
     }
     
     private func getNSManagedObjectContextView() -> NSManagedObjectContext {
@@ -57,8 +61,12 @@ class EventListTVC: UITableViewController, NSFetchedResultsControllerDelegate{
     
     func refresh() {
         // Do your job, when done:
-        CoreDataSyncorization.sharedCoreDataSyncorization.attemptDataSyncorization(getNSManagedObjectContextView()) { 
-            self.refreshControl?.endRefreshing()
+        CoreDataSyncorization.sharedCoreDataSyncorization.attemptDataSyncorization(getNSManagedObjectContextView()) {
+            EventSignUp.sharedInstance.refreshStatus {
+                DispatchQueue.main.async {
+                    self.tableView.refreshControl?.endRefreshing()
+                }
+            }
         }
     }
 
@@ -71,20 +79,30 @@ class EventListTVC: UITableViewController, NSFetchedResultsControllerDelegate{
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return (self.fetchedResultsController.sections?.count) ?? 0
+        return ((self.fetchedResultsController.sections?.count) ?? 0) + 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (self.fetchedResultsController.sections?[section].numberOfObjects) ?? 0
+        if (section != 0) {
+            return (self.fetchedResultsController.sections?[section - 1].numberOfObjects) ?? 0
+        }
+        perviousSignupStatus = EventSignUp.sharedInstance.isSignupAvailable()
+        return perviousSignupStatus ? 1 : 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: EventItemCell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventItemCell
-        
-        cell.updateCell(withEvent: self.fetchedResultsController.object(at: indexPath))
-        
-        return cell
+        if (indexPath.section != 0){
+            let cell: EventItemCell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventItemCell
+            cell.updateCell(withEvent: self.fetchedResultsController.object(at: IndexPath(row: indexPath.row, section: indexPath.section - 1) ))
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "signUpStatusCell", for: indexPath)
+            cell.textLabel?.text = NSLocalizedString("SignUpsAreOpenNowClickHereToSignUp", comment: "")
+//            cell.textLabel?.size
+            cell.textLabel?.textAlignment = .center
+            return cell
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -98,9 +116,9 @@ class EventListTVC: UITableViewController, NSFetchedResultsControllerDelegate{
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+            tableView.insertSections(IndexSet(integer: sectionIndex + 1), with: .fade)
         case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+            tableView.deleteSections(IndexSet(integer: sectionIndex + 1), with: .fade)
         case .move:
             break
         case .update:
@@ -111,13 +129,13 @@ class EventListTVC: UITableViewController, NSFetchedResultsControllerDelegate{
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            tableView.insertRows(at: [IndexPath(row: newIndexPath!.row, section: newIndexPath!.section + 1)], with: .fade)
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.deleteRows(at: [IndexPath(row: indexPath!.row, section: indexPath!.section + 1)], with: .fade)
         case .update:
-            tableView.reloadRows(at: [indexPath!], with: .fade)
+            tableView.reloadRows(at: [IndexPath(row: indexPath!.row, section: indexPath!.section + 1)], with: .fade)
         case .move:
-            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+            tableView.moveRow(at: IndexPath(row: indexPath!.row, section: indexPath!.section + 1), to: IndexPath(row: newIndexPath!.row, section: newIndexPath!.section + 1))
         }
     }
     

@@ -29,4 +29,21 @@ public class Event: NSManagedObject {
         }
         return nil
     }
+    
+    static func find(by eventId: String, in context: NSManagedObjectContext) -> Event?{
+        let fetch: NSFetchRequest<Event> = Event.fetchRequest()
+        var event: Event? = nil
+        fetch.predicate = NSPredicate.init(format: "eventId = %@", argumentArray: [eventId])
+        context.performAndWait {
+            do {
+                let result = try context.fetch(fetch)
+                if (result.count > 0) {
+                    event = result[0]
+                }
+            } catch {
+                NSLog("Error executing fetch request \(error)")
+            }
+        }
+        return event
+    }
 }

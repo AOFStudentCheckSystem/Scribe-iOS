@@ -10,6 +10,8 @@
 		122515377941FA0CE5CCDD5F /* Pods_Scribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19615C2C8A5B0E20A53C9E77 /* Pods_Scribe.framework */; };
 		C03124411EB42EB700AA69B4 /* EventSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03124401EB42EB700AA69B4 /* EventSignUp.swift */; };
 		C03124431EB435F500AA69B4 /* SignupSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03124421EB435F500AA69B4 /* SignupSheet.swift */; };
+		C03124461EB5063900AA69B4 /* SignUpGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03124451EB5063900AA69B4 /* SignUpGroupTableViewController.swift */; };
+		C03124481EB50A1D00AA69B4 /* SignUpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03124471EB50A1D00AA69B4 /* SignUpTableViewController.swift */; };
 		C03D51121EB2DAE800EB039F /* ScribeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51111EB2DAE800EB039F /* ScribeAPI.swift */; };
 		C03D51141EB3B9E500EB039F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C03D51131EB3B9E500EB039F /* Localizable.strings */; };
 		C03D51161EB3BE7F00EB039F /* UIUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D51151EB3BE7F00EB039F /* UIUtil.swift */; };
@@ -36,6 +38,8 @@
 		64E4F2A036DE96C899F3A418 /* Pods-Scribe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scribe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scribe/Pods-Scribe.release.xcconfig"; sourceTree = "<group>"; };
 		C03124401EB42EB700AA69B4 /* EventSignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSignUp.swift; sourceTree = "<group>"; };
 		C03124421EB435F500AA69B4 /* SignupSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupSheet.swift; sourceTree = "<group>"; };
+		C03124451EB5063900AA69B4 /* SignUpGroupTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpGroupTableViewController.swift; sourceTree = "<group>"; };
+		C03124471EB50A1D00AA69B4 /* SignUpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTableViewController.swift; sourceTree = "<group>"; };
 		C03D51111EB2DAE800EB039F /* ScribeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScribeAPI.swift; sourceTree = "<group>"; };
 		C03D51131EB3B9E500EB039F /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		C03D51151EB3BE7F00EB039F /* UIUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtil.swift; sourceTree = "<group>"; };
@@ -85,6 +89,15 @@
 				64E4F2A036DE96C899F3A418 /* Pods-Scribe.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C03124441EB505DD00AA69B4 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				C03124451EB5063900AA69B4 /* SignUpGroupTableViewController.swift */,
+				C03124471EB50A1D00AA69B4 /* SignUpTableViewController.swift */,
+			);
+			name = SignUp;
 			sourceTree = "<group>";
 		};
 		C03D510F1EB2BAB900EB039F /* Supporting Files */ = {
@@ -186,6 +199,7 @@
 				C09610821EB2B7C900FD2BA3 /* DataSyncorization */,
 				C09610811EB2B70500FD2BA3 /* DataModels */,
 				C096107A1EB28F1D00FD2BA3 /* Extensions */,
+				C03124441EB505DD00AA69B4 /* SignUp */,
 				C03F3B451EA55C67001513B1 /* Event */,
 				C0CD84541EA54BE900843B50 /* Main.storyboard */,
 				C0CD845A1EA54BE900843B50 /* Assets.xcassets */,
@@ -330,11 +344,13 @@
 				C03D51191EB3D0BA00EB039F /* SettingsTableViewController.swift in Sources */,
 				C03D51161EB3BE7F00EB039F /* UIUtil.swift in Sources */,
 				C03D51231EB3D9E100EB039F /* RoundCornerUIView.swift in Sources */,
+				C03124481EB50A1D00AA69B4 /* SignUpTableViewController.swift in Sources */,
 				C03D51121EB2DAE800EB039F /* ScribeAPI.swift in Sources */,
 				C09610801EB2B6C600FD2BA3 /* Event+CoreDataProperties.swift in Sources */,
 				C0CD84591EA54BE900843B50 /* Scribe.xcdatamodeld in Sources */,
 				C09610841EB2B83600FD2BA3 /* CoreDataSyncorization.swift in Sources */,
 				C03124431EB435F500AA69B4 /* SignupSheet.swift in Sources */,
+				C03124461EB5063900AA69B4 /* SignUpGroupTableViewController.swift in Sources */,
 				C03D51211EB3D71C00EB039F /* UIRountImageView.swift in Sources */,
 				C096107F1EB2B6C600FD2BA3 /* Event+CoreDataClass.swift in Sources */,
 				C03124411EB42EB700AA69B4 /* EventSignUp.swift in Sources */,
